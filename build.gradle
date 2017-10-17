@@ -15,8 +15,12 @@ repositories {
     }
 }
 
+configurations.all {
+    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+}
+
 dependencies {
-    compile 'com.github.swapUniba:crowd-pulse-social:0.0.1'
+    compile 'com.github.swapUniba:crowd-pulse-social:master-SNAPSHOT'
     compile group: 'org.twitter4j', name: 'twitter4j-core', version: '4.0.4'
     compile group: 'org.twitter4j', name: 'twitter4j-stream', version: '4.0.4'
 }
