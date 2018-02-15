@@ -23,7 +23,14 @@ public class TwitterMessageConverter extends MessageConverter<Status> {
     public Message fromSpecificExtractor(Status original, HashMap<String, Object> additionalData) {
         Message message = new Message();
         message.setoId(Long.toString(original.getId()));
-        message.setText(original.getText());
+
+        // get all retweet characters (not only the first 140s)
+        if (original.isRetweet()) {
+            message.setText(original.getRetweetedStatus().getText());
+        } else {
+            message.setText(original.getText());
+        }
+
         message.setFromUser(original.getUser().getScreenName());
 
         // if the current message is a comment to another message, set its parent here

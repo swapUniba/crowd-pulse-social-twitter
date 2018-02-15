@@ -10,7 +10,7 @@ import twitter4j.conf.ConfigurationBuilder;
 import java.io.FileNotFoundException;
 import java.net.UnknownHostException;
 
-/**
+/**n
  * @author Francesco Pontillo
  */
 public class TwitterFactory {
@@ -25,7 +25,7 @@ public class TwitterFactory {
      */
     public static Twitter getTwitterInstance() throws TwitterException {
         if (twitter == null) {
-            ConfigurationBuilder cb = new ConfigurationBuilder().setApplicationOnlyAuthEnabled(true)
+            ConfigurationBuilder cb = new ConfigurationBuilder().setTweetModeExtended(true).setApplicationOnlyAuthEnabled(true)
                     .setDebugEnabled(false);
             twitter4j.TwitterFactory tf = new twitter4j.TwitterFactory(cb.build());
             twitter = tf.getInstance();
